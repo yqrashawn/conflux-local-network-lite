@@ -4,11 +4,7 @@ const ConfluxWeb = require("conflux-web");
 
 class ConfluxNode {
   constructor({ verbose = false } = {}) {
-    return (async () => {
-      await this._findBinary();
-      await this.start(...arguments);
-      return this;
-    })();
+    this.verbose = verbose;
   }
 
   async _findBinary() {
@@ -18,6 +14,7 @@ class ConfluxNode {
 
   async start(opt) {
     if (this.running) return;
+    await this._findBinary();
     this.node = await start(this.bin, opt);
     this.running = true;
     this.web3 = new ConfluxWeb({ url: "http://localhost:12539" });
@@ -26,7 +23,10 @@ class ConfluxNode {
   }
 
   async quit(retryCount = 0, sig = "SIGTERM") {
+    if (!this.running) return;
+    await this._findBinary();
     await quit();
+    this.running = false;
     return this;
   }
 
@@ -46,7 +46,6 @@ class ConfluxNode {
   }
 }
 
-// global.DEBUG = true;
 // new ConfluxNode();
 
 module.exports = ConfluxNode;
