@@ -1,5 +1,5 @@
 const getBinary = require("./lib/getBinary.js");
-const { start } = require("./lib/server.js");
+const { start, quit } = require("./lib/server.js");
 const ConfluxWeb = require("conflux-web");
 
 class ConfluxNode {
@@ -25,22 +25,9 @@ class ConfluxNode {
     return this;
   }
 
-  quit(retryCount = 0, sig = "SIGTERM") {
-    return new Promise(resolve => {
-      if (!this.running) resolve(this);
-      if (!this.node.kill(sig)) {
-        if (retryCount > 9) {
-          setTimeout(() => this.quit(++retryCount, "SIGKILL"), 100);
-        } else if (retryCount > 19) {
-          reject(new Error("can't kill conflux process"));
-        } else {
-          setTimeout(() => this.quit(++retryCount), 100);
-        }
-      } else {
-        this.running = false;
-        resolve(this);
-      }
-    });
+  async quit(retryCount = 0, sig = "SIGTERM") {
+    await quit();
+    return this;
   }
 
   async hardRestart() {
