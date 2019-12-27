@@ -31,16 +31,8 @@ await server.quit().catch(() => console.log('failed to quit'));
 
 ### Restart
 
-Just regenerate a wallet and account.  
-
 ``` javascript
-server.restart();
-```
-
-### Real restart
-
-``` javascript
-await server.hardRestart();
+await server.restart();
 ```
 
 Check out [index.js](./index.js)  for more information.  

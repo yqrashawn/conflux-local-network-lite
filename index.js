@@ -2,6 +2,8 @@ const getBinary = require("./lib/getBinary.js");
 const { start, quit } = require("./lib/server.js");
 const ConfluxWeb = require("conflux-web");
 
+let cfxNode;
+
 class ConfluxNode {
   constructor({ verbose = false } = {}) {
     this.verbose = verbose;
@@ -12,11 +14,15 @@ class ConfluxNode {
     return this.bin;
   }
 
+  get running() {
+    if (!cfxNode) return false;
+    return !cfxNode.killed;
+  }
+
   async start(opt) {
     if (this.running) return;
     await this._findBinary();
-    this.node = await start(this.bin, opt);
-    this.running = true;
+    cfxNode = await start(this.bin, { verbose: this.verbose });
     this.web3 = new ConfluxWeb({ url: "http://localhost:12539" });
     this.genWallet();
     return this;
@@ -26,18 +32,13 @@ class ConfluxNode {
     if (!this.running) return;
     await this._findBinary();
     await quit();
-    this.running = false;
+    cfxNode = null;
     return this;
   }
 
-  async hardRestart() {
+  async restart() {
     await this.quit();
     return await this.start();
-  }
-
-  restart() {
-    this.genWallet();
-    return this;
   }
 
   genWallet() {
@@ -46,6 +47,7 @@ class ConfluxNode {
   }
 }
 
-// new ConfluxNode();
+// const server = new ConfluxNode();
+// server.start().then(console.log);
 
 module.exports = ConfluxNode;
