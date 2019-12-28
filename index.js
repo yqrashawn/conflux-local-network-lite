@@ -10,7 +10,12 @@ class ConfluxNode {
   }
 
   async _findBinary() {
-    if (!this.bin) this.bin = await getBinary();
+    if (!this.bin) {
+      this.bin = await getBinary();
+      console.log(
+        `[conflux-local-network-lite] found conflux binary at\n  ${this.bin}`
+      );
+    }
     return this.bin;
   }
 
@@ -19,10 +24,10 @@ class ConfluxNode {
     return !cfxNode.killed;
   }
 
-  async start(opt) {
+  async start(opt = {}) {
     if (this.running) return;
     await this._findBinary();
-    cfxNode = await start(this.bin, { verbose: this.verbose });
+    cfxNode = await start(this.bin, { verbose: opt.verbose || this.verbose });
     this.web3 = new ConfluxWeb({ url: "http://localhost:12539" });
     this.genWallet();
     return this;
