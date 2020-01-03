@@ -1,12 +1,14 @@
 {
   "name": "@yqrashawn/conflux-local-network-lite",
-  "version": "0.9.1",
+  "version": "0.9.4",
   "main": "index.js",
   "repository": "https://github.com/yqrashawn/conflux-local-network-lite.git",
   "license": "MIT",
   "dependencies": {
-    "conflux-web": "^0.3.0-alpha.2",
+    "ethereumjs-util": "^6.2.0",
     "got": "^10.2.0",
+    "jayson": "^3.2.0",
+    "js-conflux-sdk": "^0.4.0-beta",
     "make-dir": "^3.0.0",
     "platform-is": "^1.0.4",
     "rimraf": "^3.0.0",

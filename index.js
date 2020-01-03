@@ -1,6 +1,7 @@
 const getBinary = require("./lib/getBinary.js");
 const { start, quit } = require("./lib/server.js");
-const ConfluxWeb = require("conflux-web");
+const Conflux = require("js-conflux-sdk");
+const sendCFX = require("./lib/sendCFX.js");
 
 let cfxNode;
 
@@ -24,16 +25,16 @@ class ConfluxNode {
     return !cfxNode.killed;
   }
 
-  async start(opt = {}) {
+  async start({ verbose = false, accounts } = {}) {
     if (this.running) return;
     await this._findBinary();
-    cfxNode = await start(this.bin, { verbose: opt.verbose || this.verbose });
-    this.web3 = new ConfluxWeb({ url: "http://localhost:12539" });
-    this.genWallet();
+    cfxNode = await start(this.bin, { verbose: verbose || this.verbose });
+    this.web3 = new Conflux({ url: "http://localhost:12539" });
+    if (accounts) return await this.setupAccounts(accounts);
     return this;
   }
 
-  async quit(retryCount = 0, sig = "SIGTERM") {
+  async quit() {
     if (!this.running) return;
     await this._findBinary();
     await quit();
@@ -43,12 +44,26 @@ class ConfluxNode {
 
   async restart() {
     await this.quit();
-    return await this.start();
+    return await this.start(...arguments);
   }
 
-  genWallet() {
-    this.wallet = this.web3.wallet.create();
-    return this.wallet;
+  async setupAccounts(accounts) {
+    if (!Array.isArray(accounts)) {
+      throw new Error("accounts must be an array");
+    }
+
+    for (const account of accounts) {
+      await this.sendCFX(account, this.web3);
+    }
+
+    return this;
+  }
+
+  async sendCFX({ address, balance, secretKey, privateKey }) {
+    if (secretKey) privateKey = secretKey;
+    if (typeof balance !== "string") balance = balance.toString();
+    await this.sendCFX({ address, balance, privateKey });
+    return this;
   }
 }
 
