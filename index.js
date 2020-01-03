@@ -1,7 +1,12 @@
 const getBinary = require("./lib/getBinary.js");
 const { start, quit } = require("./lib/server.js");
 const Conflux = require("js-conflux-sdk");
-const sendCFX = require("./lib/sendCFX.js");
+const {
+  startGenBlock,
+  stopGenBlock,
+  genOneBlock,
+  sendCFX
+} = require("./lib/sendCFX.js");
 
 let cfxNode;
 
@@ -30,12 +35,15 @@ class ConfluxNode {
     await this._findBinary();
     cfxNode = await start(this.bin, { verbose: verbose || this.verbose });
     this.web3 = new Conflux({ url: "http://localhost:12539" });
+    await genOneBlock();
+    startGenBlock();
     if (accounts) return await this.setupAccounts(accounts);
     return this;
   }
 
   async quit() {
     if (!this.running) return;
+    stopGenBlock();
     await this._findBinary();
     await quit();
     cfxNode = null;
@@ -53,7 +61,7 @@ class ConfluxNode {
     }
 
     for (const account of accounts) {
-      await this.sendCFX(account, this.web3);
+      await this.sendCFX(account);
     }
 
     return this;
@@ -62,7 +70,7 @@ class ConfluxNode {
   async sendCFX({ address, balance, secretKey, privateKey }) {
     if (secretKey) privateKey = secretKey;
     if (typeof balance !== "string") balance = balance.toString();
-    await this.sendCFX({ address, balance, privateKey });
+    await sendCFX({ address, balance, privateKey }, this.web3);
     return this;
   }
 }
