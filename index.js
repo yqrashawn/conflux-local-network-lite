@@ -6,13 +6,14 @@ const {
   stopGenBlock,
   genOneBlock,
   sendCFX
-} = require("./lib/sendCFX.js");
+} = require("./lib/chain.js");
 
 let cfxNode;
 
 class ConfluxNode {
-  constructor({ verbose = false } = {}) {
+  constructor({ verbose = false, genBlockInterval = 0 } = {}) {
     this.verbose = verbose;
+    this.genBlockInterval = genBlockInterval;
   }
 
   async _findBinary() {
@@ -30,13 +31,15 @@ class ConfluxNode {
     return !cfxNode.killed;
   }
 
-  async start({ verbose = false, accounts } = {}) {
+  async start({ verbose = false, accounts, genBlockInterval } = {}) {
     if (this.running) return;
     await this._findBinary();
     cfxNode = await start(this.bin, { verbose: verbose || this.verbose });
     this.web3 = new Conflux({ url: "http://localhost:12539" });
     await genOneBlock();
-    startGenBlock();
+    startGenBlock(
+      genBlockInterval === undefined ? this.genBlockInterval : genBlockInterval
+    );
     if (accounts) return await this.setupAccounts(accounts);
     return this;
   }

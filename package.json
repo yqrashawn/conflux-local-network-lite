@@ -1,6 +1,6 @@
 {
   "name": "@yqrashawn/conflux-local-network-lite",
-  "version": "0.9.7",
+  "version": "0.9.8",
   "main": "index.js",
   "repository": "https://github.com/yqrashawn/conflux-local-network-lite.git",
   "license": "MIT",
@@ -12,6 +12,7 @@
     "make-dir": "^3.0.0",
     "platform-is": "^1.0.4",
     "rimraf": "^3.0.0",
+    "sleep-promise": "^8.0.1",
     "tmp": "^0.1.0",
     "unzip-stream": "^0.3.0"
   }
