@@ -11,9 +11,10 @@ const {
 let cfxNode;
 
 class ConfluxNode {
-  constructor({ verbose = false, genBlockInterval = 0 } = {}) {
+  constructor({ verbose = false, genBlockInterval = 0, port = 12539 } = {}) {
     this.verbose = verbose;
     this.genBlockInterval = genBlockInterval;
+    this.port = port;
   }
 
   async _findBinary() {
@@ -31,11 +32,15 @@ class ConfluxNode {
     return !cfxNode.killed;
   }
 
-  async start({ verbose = false, accounts, genBlockInterval } = {}) {
+  async start({ verbose = false, accounts, genBlockInterval, port } = {}) {
     if (this.running) return;
+    port = port || this.port;
     await this._findBinary();
-    cfxNode = await start(this.bin, { verbose: verbose || this.verbose });
-    this.web3 = new Conflux({ url: "http://localhost:12539" });
+    cfxNode = await start(this.bin, {
+      verbose: verbose || this.verbose,
+      port
+    });
+    this.web3 = new Conflux({ url: `http://localhost:${port}` });
     await genOneBlock();
     startGenBlock(
       genBlockInterval === undefined ? this.genBlockInterval : genBlockInterval
@@ -74,6 +79,13 @@ class ConfluxNode {
     if (secretKey) privateKey = secretKey;
     if (typeof balance !== "string") balance = balance.toString();
     await sendCFX({ address, balance, privateKey }, this.web3);
+    return this;
+  }
+
+  changeGenBlockIntervalTo(interval = 0) {
+    this.genBlockInterval = interval;
+    stopGenBlock();
+    startGenBlock(interval);
     return this;
   }
 }
