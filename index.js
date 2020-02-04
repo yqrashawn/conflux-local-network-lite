@@ -7,13 +7,25 @@ const {
   genOneBlock,
   sendCFX
 } = require("./lib/chain.js");
+const DEFAULT_GEN_BLOCK_INTERVAL = 300;
+const DEFAULT_PORT = 12539;
 
 let cfxNode;
 
 class ConfluxNode {
-  constructor({ verbose = false, genBlockInterval = 0, port = 12539 } = {}) {
+  constructor(opts) {
+    this._parseOptions(opts);
+  }
+
+  _parseOptions({
+    verbose = false,
+    genBlockInterval = DEFAULT_GEN_BLOCK_INTERVAL,
+    port = DEFAULT_PORT,
+    genBlockManually = false
+  } = {}) {
     this.verbose = verbose;
     this.genBlockInterval = genBlockInterval;
+    this.genBlockManually = genBlockManually;
     this.port = port;
   }
 
@@ -32,20 +44,55 @@ class ConfluxNode {
     return !cfxNode.killed;
   }
 
-  async start({ verbose = false, accounts, genBlockInterval, port } = {}) {
-    if (this.running) return;
-    port = port || this.port;
-    await this._findBinary();
-    cfxNode = await start(this.bin, {
+  _parseStartOptions({
+    verbose = false,
+    accounts = [],
+    genBlockInterval,
+    port,
+    genBlockManually
+  } = {}) {
+    return {
+      port: port || this.port,
       verbose: verbose || this.verbose,
+      accounts,
+      genBlockInterval: genBlockInterval || this.genBlockInterval,
+      genBlockManually: genBlockManually || this.genBlockManually
+    };
+  }
+
+  async start(opts) {
+    if (this.running) return;
+
+    const {
+      port,
+      verbose,
+      accounts,
+      genBlockInterval,
+      genBlockManually
+    } = this._parseStartOptions(opts);
+
+    await this._findBinary();
+
+    cfxNode = await start(this.bin, {
+      verbose,
       port
     });
+
     this.web3 = new Conflux({ url: `http://localhost:${port}` });
-    await genOneBlock();
-    startGenBlock(
-      genBlockInterval === undefined ? this.genBlockInterval : genBlockInterval
-    );
-    if (accounts) return await this.setupAccounts(accounts);
+
+    if (!genBlockManually) {
+      startGenBlock(
+        genBlockInterval === undefined
+          ? this.genBlockInterval
+          : genBlockInterval
+      );
+    }
+
+    if (accounts) {
+      await this.setupAccounts(accounts);
+      await genOneBlock();
+    }
+
     return this;
   }
 
@@ -82,7 +129,12 @@ class ConfluxNode {
     return this;
   }
 
-  changeGenBlockIntervalTo(interval = 0) {
+  async genOneBlock() {
+    await genOneBlock();
+    return this;
+  }
+
+  changeGenBlockIntervalTo(interval = DEFAULT_GEN_BLOCK_INTERVAL) {
     this.genBlockInterval = interval;
     stopGenBlock();
     startGenBlock(interval);
