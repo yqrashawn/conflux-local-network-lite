@@ -7,6 +7,9 @@ const {
   genOneBlock,
   sendCFX
 } = require("./lib/chain.js");
+
+const devServer = require("./lib/dev-server.js");
+
 const DEFAULT_GEN_BLOCK_INTERVAL = 300;
 const DEFAULT_PORT = 12539;
 
@@ -21,11 +24,13 @@ class ConfluxNode {
     verbose = false,
     genBlockInterval = DEFAULT_GEN_BLOCK_INTERVAL,
     port = DEFAULT_PORT,
-    genBlockManually = false
+    genBlockManually = false,
+    devServer = false
   } = {}) {
     this.verbose = verbose;
     this.genBlockInterval = genBlockInterval;
     this.genBlockManually = genBlockManually;
+    this.devServer = devServer;
     this.port = port;
   }
 
@@ -63,13 +68,15 @@ class ConfluxNode {
   async start(opts) {
     if (this.running) return;
 
+    opts = this._parseStartOptions(opts);
+
     const {
       port,
       verbose,
       accounts,
       genBlockInterval,
       genBlockManually
-    } = this._parseStartOptions(opts);
+    } = opts;
 
     await this._findBinary();
 
@@ -93,6 +100,8 @@ class ConfluxNode {
       await genOneBlock();
     }
 
+    devServer.start({ ...opts, node: this });
+
     return this;
   }
 
@@ -101,6 +110,7 @@ class ConfluxNode {
     stopGenBlock();
     await this._findBinary();
     await quit();
+    devServer.stop();
     cfxNode = null;
     return this;
   }

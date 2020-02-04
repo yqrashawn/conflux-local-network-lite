@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Conflux Local Node Dev Server</title>
+    <meta http-equiv="content-type" Content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="Index, Follow">
+  </head>
+  <style type="text/css" media="screen">
+   #gen-block-rst {
+     display: none;
+   }
+  </style>
+  <body>
+    <section>
+      <div>
+        <h1>Block</h1>
+        <button onclick="genOneBlock()">Gen One Block</button>
+        <span id="gen-block-rst"> success!</span>
+      </div>
+    </section>
+    <script type="text/javascript">
+     function genOneBlock() {
+       const genBlockRst = document.getElementById("gen-block-rst");
+
+       fetch('/api/gen-one-block').then(({status, statusText}) => {
+         if(status < 400) genBlockRst.innerText = 'success!';
+         else genBlockRst.innerText = 'failed!';
+         genBlockRst.style.display = 'inline-block';
+         setTimeout(() => {
+           genBlockRst.style.display = 'none';
+         }, 1500);
+       })
+     }
+    </script>
+  </body>
+</html>

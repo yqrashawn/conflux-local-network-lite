@@ -1,11 +1,13 @@
 {
   "name": "@yqrashawn/conflux-local-network-lite",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "index.js",
   "repository": "https://github.com/yqrashawn/conflux-local-network-lite.git",
   "license": "MIT",
   "dependencies": {
     "ethereumjs-util": "^6.2.0",
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
     "got": "^10.2.0",
     "jayson": "^3.2.0",
     "js-conflux-sdk": "^0.4.0-beta",
@@ -15,5 +17,8 @@
     "sleep-promise": "^8.0.1",
     "tmp": "^0.1.0",
     "unzip-stream": "^0.3.0"
+  },
+  "devDependencies": {
+    "prettier-eslint-cli": "^5.0.0"
   }
 }
