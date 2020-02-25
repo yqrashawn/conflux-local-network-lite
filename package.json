@@ -1,6 +1,6 @@
 {
   "name": "@yqrashawn/conflux-local-network-lite",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "main": "index.js",
   "repository": "https://github.com/yqrashawn/conflux-local-network-lite.git",
   "license": "MIT",
@@ -18,6 +18,10 @@
     "tmp": "^0.1.0",
     "unzip-stream": "^0.3.0"
   },
+  "lib": [
+    "public",
+    "lib"
+  ],
   "devDependencies": {
     "prettier-eslint-cli": "^5.0.0"
   }

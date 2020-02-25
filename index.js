@@ -78,7 +78,7 @@ class ConfluxNode {
       genBlockManually
     } = opts;
 
-    await this._findBinary();
+    if(!(await this._findBinary())) return;
 
     cfxNode = await start(this.bin, {
       verbose,
