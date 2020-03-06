@@ -13,7 +13,7 @@ install:
 build_script:
   - node test.js
 test_script:
-  - ls ~/.conflux-bin
+  - ls ~/.conflux-bin/conflux/run
 cache:
   - node_modules
   - '%LOCALAPPDATA%/Yarn'
