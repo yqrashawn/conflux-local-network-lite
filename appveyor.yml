@@ -1,0 +1,19 @@
+# Test against the latest version of this Node.js version
+image: Visual Studio 2019
+environment:
+  matrix:
+    - node_version: '10'
+# branches:
+#   only:
+#     - master
+#     - '/v[0-9]+(\.[0-9]+)*/'
+install:
+  - ps: 'Install-Product node $env:node_version'
+  - yarn install --frozen-lockfile
+build_script:
+  - node test.js
+test_script:
+  - ls ~/.conflux-bin
+cache:
+  - node_modules
+  - '%LOCALAPPDATA%/Yarn'

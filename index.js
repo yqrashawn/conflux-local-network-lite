@@ -152,7 +152,4 @@ class ConfluxNode {
   }
 }
 
-// const server = new ConfluxNode();
-// server.start().then(console.log);
-
 module.exports = ConfluxNode;
