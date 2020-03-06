@@ -134,7 +134,7 @@ class ConfluxNode {
 
   async sendCFX({ address, balance, secretKey, privateKey }) {
     if (secretKey) privateKey = secretKey;
-    if (typeof balance !== "string") balance = balance.toString();
+    if (typeof balance !== "string") balance = `0x${balance.toString(16)}`;
     await sendCFX({ address, balance, privateKey }, this.web3);
     return this;
   }
