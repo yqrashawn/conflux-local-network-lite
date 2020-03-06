@@ -16,7 +16,7 @@
     "rimraf": "^3.0.1",
     "sleep-promise": "^8.0.1",
     "tmp": "^0.1.0",
-    "unzip-stream": "^0.3.0"
+    "unzipper": "^0.10.10"
   },
   "lib": [
     "public",
