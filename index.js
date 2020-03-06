@@ -1,6 +1,6 @@
 const getBinary = require("./lib/getBinary.js");
 const { start, quit } = require("./lib/server.js");
-const Conflux = require("js-conflux-sdk");
+const { Conflux } = require("js-conflux-sdk");
 const {
   startGenBlock,
   stopGenBlock,
