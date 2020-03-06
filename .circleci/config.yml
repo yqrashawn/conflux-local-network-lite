@@ -1,0 +1,19 @@
+version: 2.1
+
+workflows:
+  smoke_test:
+    jobs:
+      - install-and-test
+
+jobs:
+  install-and-test:
+    docker:
+      - image: circleci/node:10
+    steps:
+      - checkout
+      - run:
+          name: yarn install
+          command: |
+            yarn --frozen-lockfile
+            node test.js
+            ls lib/.conflux-bin/conflux/run/
