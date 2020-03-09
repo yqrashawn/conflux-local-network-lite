@@ -9,6 +9,10 @@ Start a conflux local network from nodejs.
 - start/restart/quit a conflux node locally
 - create accounts with specified balance on start/restart
 
+## Note
+- The latest version don't support windows , don't have the conflux windows
+  binary yet.
+
 ## Install
 ``` shell
 npm i -D @yqrashawn/conflux-local-network-lite
@@ -34,7 +38,7 @@ const ConfluxLocalNetworkLite = require("@yqrashawn/conflux-local-network-lite")
     genBlockInterval: 1000 // gen one block per 1000 ms
   });
   // it has a conflux-web instance in it
-  console.log(server.web3);
+  console.log(server.cfx);
   // it will generate a wallet and account automatically
   console.log(server.wallet);
 })();
