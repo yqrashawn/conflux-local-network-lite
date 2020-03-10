@@ -8,7 +8,7 @@
     "ethereumjs-util": "^6.2.0",
     "express": "^4.17.1",
     "express-async-errors": "^3.1.1",
-    "got": "^10.2.2",
+    "got": "^10.5.7",
     "jayson": "^3.2.0",
     "js-conflux-sdk": "^0.8.0-alpha",
     "make-dir": "^3.0.2",
