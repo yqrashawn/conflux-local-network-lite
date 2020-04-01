@@ -1,13 +1,15 @@
-const Local = require('./index.js');
+const Local = require("./index.js");
 const server = new Local({ genBlockInterval: 300 });
-server.start({
-  accounts: [
-    {
-      secretKey:
-      '0xCA17316C298AC00F746B5F90330191EB08FC446A1A8A91D1F97E1F9588DBDD91',
-      balance: 1e23,
-    },
-  ],
-}).then(() => {
-  process.exit();
-})
+server
+  .start({
+    accounts: [
+      {
+        secretKey:
+          "0xA46F301E2D0AC3EE7B83303D93DD49C14CE8E18251EB623ED468AAA12F572E74",
+        balance: 1e23
+      }
+    ]
+  })
+  .then(() => {
+    process.exit();
+  });
