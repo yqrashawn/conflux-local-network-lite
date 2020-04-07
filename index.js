@@ -25,10 +25,12 @@ class ConfluxNode {
     genBlockInterval = DEFAULT_GEN_BLOCK_INTERVAL,
     port = DEFAULT_PORT,
     genBlockManually = false,
-    devServer = false
+    devServer = false,
+    killPortProcess = false,
   } = {}) {
     this.verbose = verbose;
     this.genBlockInterval = genBlockInterval;
+    this.killPortProcess = killPortProcess;
     this.genBlockManually = genBlockManually;
     this.devServer = devServer;
     this.port = port;
@@ -54,9 +56,11 @@ class ConfluxNode {
     accounts = [],
     genBlockInterval,
     port,
-    genBlockManually
+    genBlockManually,
+    killPortProcess,
   } = {}) {
     return {
+      killPortProcess: killPortProcess || this.killPortProcess,
       port: port || this.port,
       verbose: verbose || this.verbose,
       accounts,
@@ -75,14 +79,16 @@ class ConfluxNode {
       verbose,
       accounts,
       genBlockInterval,
-      genBlockManually
+      genBlockManually,
+      killPortProcess,
     } = opts;
 
     if(!(await this._findBinary())) return;
 
     cfxNode = await start(this.bin, {
       verbose,
-      port
+      port,
+      killPortProcess,
     });
 
     this.cfx = new Conflux({ url: `http://localhost:${port}` });
