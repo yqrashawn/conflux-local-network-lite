@@ -1,6 +1,6 @@
 {
   "name": "@yqrashawn/conflux-local-network-lite",
-  "version": "2.0.9",
+  "version": "2.0.10",
   "main": "index.js",
   "repository": "https://github.com/yqrashawn/conflux-local-network-lite.git",
   "license": "MIT",
@@ -10,7 +10,7 @@
     "express-async-errors": "^3.1.1",
     "got": "^10.5.7",
     "jayson": "^3.2.0",
-    "js-conflux-sdk": "^0.9.0-alpha",
+    "js-conflux-sdk": "^0.9.1",
     "kill-port-process": "^2.2.1",
     "make-dir": "^3.0.2",
     "platform-is": "^1.0.4",

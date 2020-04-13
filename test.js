@@ -1,5 +1,9 @@
 const Local = require("./index.js");
-const server = new Local({ genBlockInterval: 300 });
+const server = new Local({
+  genBlockInterval: 300,
+  killPortProcess: true,
+  verbose: true
+});
 server
   .start({
     accounts: [
