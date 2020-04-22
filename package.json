@@ -1,11 +1,11 @@
 {
   "name": "@yqrashawn/conflux-local-network-lite",
-  "version": "2.0.13",
+  "version": "2.0.14",
   "main": "index.js",
   "repository": "https://github.com/yqrashawn/conflux-local-network-lite.git",
   "license": "MIT",
   "dependencies": {
-    "cfx-util": "^0.0.1-c",
+    "cfx-util": "^0.0.2",
     "express": "^4.17.1",
     "express-async-errors": "^3.1.1",
     "got": "^10.7.0",
