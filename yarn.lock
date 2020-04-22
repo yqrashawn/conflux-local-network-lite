@@ -409,10 +409,10 @@ camelcase@^5.0.0, camelcase@^5.3.1:
   resolved "https://registry.yarnpkg.com/camelcase/-/camelcase-5.3.1.tgz#e3c9b31569e106811df242f715725a1f4c494320"
   integrity sha512-L28STB170nwWS63UjtlEOE3dldQApaJXZkOI1uMFfzf3rRuPegHaHesyee+YxQ+W6SvRDQV6UrdOdRiR153wJg==
 
-cfx-util@^0.0.1-c:
-  version "0.0.1-c"
-  resolved "https://registry.yarnpkg.com/cfx-util/-/cfx-util-0.0.1-c.tgz#b47da0ab610a82951fe964fe9c1894154f02375e"
-  integrity sha512-1Y8SvaAd7SxNt2N3XaP6JS4fkbmPT13gh1FeAEKf0HShk3229ZrwURaofhWSVZ+d+aDMZQBTjCH2vJZVlNe9Hw==
+cfx-util@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/cfx-util/-/cfx-util-0.0.1.tgz#db0df52b714e6718afab664fa3f769400610930d"
+  integrity sha512-3x73y3IzO9nv4aH1acsrzjerWfYnMcmNzLXxlCA3JZSl/qLfbwQsc8J0gEfc1YndJhjwyNTgfbeIk9bWBsdJFQ==
   dependencies:
     "@types/bn.js" "^4.11.3"
     bn.js "^4.11.0"
