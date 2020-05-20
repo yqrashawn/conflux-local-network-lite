@@ -1,6 +1,6 @@
 {
   "name": "@yqrashawn/conflux-local-network-lite",
-  "version": "2.0.19",
+  "version": "2.0.20",
   "main": "index.js",
   "repository": "https://github.com/yqrashawn/conflux-local-network-lite.git",
   "license": "MIT",
