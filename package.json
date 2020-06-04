@@ -1,6 +1,6 @@
 {
   "name": "@yqrashawn/conflux-local-network-lite",
-  "version": "2.1.0",
+  "version": "2.1.2",
   "main": "index.js",
   "repository": "https://github.com/yqrashawn/conflux-local-network-lite.git",
   "license": "MIT",
@@ -29,6 +29,7 @@
     "prettier-eslint-cli": "^5.0.0"
   },
   "scripts": {
+    "test": "node test.js",
     "snyk-protect": "snyk protect",
     "prepare": "yarn run snyk-protect"
   },
