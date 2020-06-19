@@ -2056,10 +2056,10 @@ isexe@^2.0.0:
   resolved "https://registry.yarnpkg.com/isexe/-/isexe-2.0.0.tgz#e8fbf374dc556ff8947a10dcb0572d633f2cfa10"
   integrity sha1-6PvzdNxVb/iUehDcsFctYz8s+hA=
 
-jayson@^3.2.1:
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/jayson/-/jayson-3.3.0.tgz#72089c4cd8c848fc6f992da0cdd28973ab6a6e78"
-  integrity sha512-QrsIeK9spSBEsXEvRMIAQ3X9cfT7u0EVD0L7XVpX4JqzIRgziJeei4iRWs+bZovdqyrmg8WgKgY9zKO4HY6eYQ==
+jayson@^3.3.1:
+  version "3.3.3"
+  resolved "https://registry.yarnpkg.com/jayson/-/jayson-3.3.3.tgz#e9442a6b831e9596fcf8d5a7f032e86b5cbe0b88"
+  integrity sha512-0bQ/vNvWyi+fzNoMvRK63m7BGU+PWwaJRVaGgJWZeAL5euOSqJtqzqyCrfiS3Sdw3OrvgKWF5f5N8ut87gxrng==
   dependencies:
     "@types/connect" "^3.4.32"
     "@types/express-serve-static-core" "^4.16.9"
