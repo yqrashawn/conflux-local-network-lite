@@ -19,7 +19,7 @@
     "tmp": "^0.2.0",
     "unzipper": "^0.10.11",
     "cross-port-killer": "^1.2.1",
-    "snyk": "^1.329.0"
+    "snyk": "^1.332.0"
   },
   "lib": [
     "public",
