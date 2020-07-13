@@ -1,7 +1,7 @@
 const Local = require("./index.js");
 const server = new Local({
   genBlockInterval: 300,
-  killPortProcess: true,
+  killPortProcess: true
 });
 server
   .start({
@@ -15,4 +15,8 @@ server
   })
   .then(() => {
     process.exit();
+  })
+  .catch(err => {
+    debugger;
+    throw err;
   });

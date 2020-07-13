@@ -338,6 +338,11 @@
   dependencies:
     "@types/node" "*"
 
+"@types/retry@^0.12.0":
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/@types/retry/-/retry-0.12.0.tgz#2b35eccfcee7d38cd72ad99232fbd58bffb3c84d"
+  integrity sha512-wWKOClTTiizcZhXnPY4wikVAwmdYHp8q6DmC+EJUzAMsycb7HB32Kh9RN4+0gExjmPmZSAQjgURXIGATPegAvA==
+
 "@types/semver@^5.5.0":
   version "5.5.0"
   resolved "https://registry.yarnpkg.com/@types/semver/-/semver-5.5.0.tgz#146c2a29ee7d3bae4bf2fcb274636e264c813c45"
@@ -790,10 +795,10 @@ camelcase@^5.0.0, camelcase@^5.3.1:
   resolved "https://registry.yarnpkg.com/camelcase/-/camelcase-5.3.1.tgz#e3c9b31569e106811df242f715725a1f4c494320"
   integrity sha512-L28STB170nwWS63UjtlEOE3dldQApaJXZkOI1uMFfzf3rRuPegHaHesyee+YxQ+W6SvRDQV6UrdOdRiR153wJg==
 
-cfx-util@^0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/cfx-util/-/cfx-util-0.0.2.tgz#e9b621f41802a790ee65b2a9656134826d0b6bed"
-  integrity sha512-rKQmEX0yooRWyPTRjheiNQ4iv36/holHwj0TqSlFWsnufUdTzAWZPNyMNbNn3bO4D9IqFK9PJrnsIxbCR+hwZA==
+cfx-util@>=0.0.2:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/cfx-util/-/cfx-util-0.0.4.tgz#f80ae2f40128798cf244952eb6608656a5ff91f0"
+  integrity sha512-uIE6y1rnxZD3zIGOUVCgSw9woDqfN8drHpDys9qHVn+pcWDnYW0YSHo+SOK1JLU++/J+RkKa4sml+jkHXfHb7Q==
   dependencies:
     "@types/bn.js" "^4.11.3"
     bn.js "^4.11.0"
@@ -1389,11 +1394,6 @@ eslint@^5.0.0:
     strip-json-comments "^2.0.1"
     table "^5.2.3"
     text-table "^0.2.0"
-
-esm@^3.2.25:
-  version "3.2.25"
-  resolved "https://registry.yarnpkg.com/esm/-/esm-3.2.25.tgz#342c18c29d56157688ba5ce31f8431fbb795cc10"
-  integrity sha512-U1suiZ2oDVWv4zPO56S0NcR5QriEahGtdN2OR6FiOG4WJvcjBVFB0qI4+eKoWFH483PKGuLuu6V8Z4T5g63UVA==
 
 espree@^3.5.2:
   version "3.5.4"
@@ -2159,14 +2159,13 @@ jayson@^3.3.1:
     lodash "^4.17.15"
     uuid "^3.2.1"
 
-js-conflux-sdk@^0.9.2:
-  version "0.9.2"
-  resolved "https://registry.yarnpkg.com/js-conflux-sdk/-/js-conflux-sdk-0.9.2.tgz#af81e7b0e3e4627af340dd5b1d42d446d6dbde72"
-  integrity sha512-AplA35GHml74b7HrAMwJxsDrkTcR/LiL5N98qMoDv0pPn2hPgjC0JEvY0Rd+twJi1+/BbnTH70QDdibPillJNw==
+js-conflux-sdk@^0.13.1:
+  version "0.13.1"
+  resolved "https://registry.yarnpkg.com/js-conflux-sdk/-/js-conflux-sdk-0.13.1.tgz#38e292e1cbf74f5ccf69dff51da9704cfc113bcc"
+  integrity sha512-hyq1iBCxOEO7gFjIbMUvUvyUlTkSxz9zurVQXcl2bI4xe3G2OLMK3pAkeCK6qwEuTEi3PxtCG6WJODvgRZGNEw==
   dependencies:
     "@babel/runtime" "^7.8.4"
     big.js "^5.2.2"
-    esm "^3.2.25"
     jsbi "^3.1.1"
     keccak "^2.0.0"
     lodash "^4.17.15"
@@ -2781,6 +2780,14 @@ p-map@2.1.0:
   resolved "https://registry.yarnpkg.com/p-map/-/p-map-2.1.0.tgz#310928feef9c9ecc65b68b17693018a665cea175"
   integrity sha512-y3b8Kpd8OAN444hxfBbFfj1FY/RjtTd8tzYwhUqNYXx0fXx2iX4maP4Qr6qhIKbQXI02wTLAda4fYUbDagTUFw==
 
+p-retry@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/p-retry/-/p-retry-4.2.0.tgz#ea9066c6b44f23cab4cd42f6147cdbbc6604da5d"
+  integrity sha512-jPH38/MRh263KKcq0wBNOGFJbm+U6784RilTmHjB/HM9kH9V8WlCpVUcdOmip9cjXOh6MxZ5yk1z2SjDUJfWmA==
+  dependencies:
+    "@types/retry" "^0.12.0"
+    retry "^0.12.0"
+
 p-timeout@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/p-timeout/-/p-timeout-2.0.1.tgz#d8dd1979595d2dc0139e1fe46b8b646cb3cdf038"
@@ -3201,6 +3208,11 @@ restore-cursor@^2.0.0:
   dependencies:
     onetime "^2.0.0"
     signal-exit "^3.0.2"
+
+retry@^0.12.0:
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/retry/-/retry-0.12.0.tgz#1b42a6266a21f07421d1b0b54b7dc167b01c013b"
+  integrity sha1-G0KmJmoh8HQh0bC1S33BZ7AcATs=
 
 rimraf@2, rimraf@^2.6.3:
   version "2.7.1"
