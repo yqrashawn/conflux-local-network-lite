@@ -1,5 +1,5 @@
 {
-  "mac": "https://github.com/yqrashawn/conflux-local-network-lite/releases/download/v0.6.0/conflux_mac_v0.6.0.zip",
-  "linux": "https://github.com/yqrashawn/conflux-local-network-lite/releases/download/v0.6.0/conflux_ubuntu_v0.6.0.zip",
+  "mac": "https://github.com/yqrashawn/conflux-local-network-lite/releases/download/v0.7.0-rc-1/conflux_mac_v0.7.0-rc-1.zip",
+  "linux": "https://github.com/yqrashawn/conflux-local-network-lite/releases/download/v0.7.0-rc-1/conflux_linux_v0.7.0-rc-1.zip",
   "windows": "https://github.com/Conflux-Chain/conflux-rust/releases/download/v0.5.1-alpha-6/conflux_win10_x64_v0.5.1-alpha-6.zip"
 }

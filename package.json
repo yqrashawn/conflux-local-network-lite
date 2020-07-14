@@ -1,6 +1,6 @@
 {
   "name": "@yqrashawn/conflux-local-network-lite",
-  "version": "2.1.4",
+  "version": "2.2.0",
   "main": "index.js",
   "repository": "https://github.com/yqrashawn/conflux-local-network-lite.git",
   "license": "MIT",
@@ -30,9 +30,6 @@
   },
   "scripts": {
     "test": "node test.js",
-    "dev": "nodemon test.js",
-    "snyk-protect": "snyk protect",
-    "prepare": "yarn run snyk-protect"
-  },
-  "snyk": true
+    "dev": "nodemon test.js"
+  }
 }
