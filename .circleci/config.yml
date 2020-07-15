@@ -1,9 +1,12 @@
 version: 2.1
 
 workflows:
-  smoke_test:
+  test_and_release:
     jobs:
       - install-and-test:
+      - release:
+          requires:
+            - install-and-test
           filters:
             branches:
               only: /^master|rc|[0-9]+\.[0-9]+\.x$/
@@ -21,3 +24,12 @@ jobs:
             node test.js
             ls lib/.conflux-bin/conflux/run/
             yarn run semantic-release
+  release:
+    docker:
+      - image: circleci/node:11
+    steps:
+      - checkout
+      - run:
+          name: release
+          command: |
+            npx semantic-release
