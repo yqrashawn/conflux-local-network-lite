@@ -1,50 +1,42 @@
-# conflux-local-network-lite
+# @cfxjs/fullnode
 
 Start a conflux local network from nodejs.  
 
 ## Features
 
-- download conflux binary depends on system type (only support ubuntu when using
-  linux)
-- start/restart/quit a conflux node locally
-- create accounts with specified balance on start/restart
+- Download conflux binary depends on system type 
+- Start/restart/quit a conflux node locally
+- Initialize accounts with specified balance on start/restart
 
 ## Note
-- The latest version don't support windows , don't have the conflux windows
-  binary yet.
+- The latest version may not support windows.
 
 ## Install
 ``` shell
-npm i -D @yqrashawn/conflux-local-network-lite
-yarn add --dev @yqrashawn/conflux-local-network-lite
+npm i -D @cfxjs/fullnode
+yarn add --dev @cfxjs/fullnode
 ```
 
 ## Examples
 
 ### Start server
 ``` javascript
-const ConfluxLocalNetworkLite = require("@yqrashawn/conflux-local-network-lite");
+const Node = require("@cfxjs/fullnode");
 (async () => {
-  const server = new ConfluxLocalNetworkLite();
-  await server.start({
-    verbose: false, // show log of conflux node
-    accounts: [
+  const node = new Node({accounts: [
       // initialize accounts with specified gdrip balance
       {
         address: "0x91e36D5f4ce79054e2e7811132860469d6E802d6",
         balance: 100000000000000000000
       }
-    ],
-    genBlockInterval: 1000 // gen one block per 1000 ms
-  });
-  // it has a conflux-web instance in it
-  console.log(server.cfx);
-  // it will generate a wallet and account automatically
-  console.log(server.wallet);
+    ]});
+  await node.start();
+  // it has a js-conflux-sdk instance in it
+  console.log(node.cfx);
 })();
 ```
 
-A conflux node will be start at `localhost:12539`.  
+A conflux node will be start at `localhost:12539` be default.  
 
 ### Stop server
 

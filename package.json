@@ -1,6 +1,6 @@
 {
-  "name": "@yqrashawn/conflux-local-network-lite",
-  "version": "2.2.0",
+  "name": "@cfxjs/fullnode",
+  "version": "0.0.0",
   "main": "index.js",
   "repository": "https://github.com/yqrashawn/conflux-local-network-lite.git",
   "license": "MIT",
@@ -11,7 +11,7 @@
     "express-async-errors": "^3.1.1",
     "got": "^10.7.0",
     "jayson": "^3.3.1",
-    "js-conflux-sdk": "^0.13.1",
+    "js-conflux-sdk": "^0.13.3",
     "make-dir": "^3.1.0",
     "p-retry": "^4.2.0",
     "platform-is": "^1.0.4",
@@ -26,7 +26,25 @@
     "lib"
   ],
   "devDependencies": {
-    "prettier-eslint-cli": "^5.0.0"
+    "prettier-eslint-cli": "^5.0.0",
+    "semantic-release": "^17.1.1"
+  },
+  "release": {
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/npm",
+      "@semantic-release/github"
+    ],
+    "branches": [
+      "+([0-9])?(.{+([0-9]),x}).x",
+      "master",
+      {
+        "name": "rc",
+        "channel": "rc",
+        "prerelease": "rc"
+      }
+    ]
   },
   "scripts": {
     "test": "node test.js",
