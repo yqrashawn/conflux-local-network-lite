@@ -11,7 +11,7 @@ const {
 const devServer = require("./lib/dev-server.js");
 
 const DEFAULT_GEN_BLOCK_INTERVAL = 300;
-const DEFAULT_PORT = 12539;
+const DEFAULT_PORT = 12537;
 
 let cfxNode;
 

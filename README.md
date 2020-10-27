@@ -36,7 +36,7 @@ const Node = require("@cfxjs/fullnode");
 })();
 ```
 
-A conflux node will be start at `localhost:12539` be default.  
+A conflux node will be start at `localhost:12537` be default.  
 
 ### Stop server
 
