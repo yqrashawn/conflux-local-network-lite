@@ -3062,10 +3062,10 @@ jayson@^3.3.4:
     lodash "^4.17.20"
     uuid "^3.4.0"
 
-js-conflux-sdk@^0.13.4:
-  version "0.13.4"
-  resolved "https://registry.yarnpkg.com/js-conflux-sdk/-/js-conflux-sdk-0.13.4.tgz#215b1808b03adda43aab544736e395358e32580a"
-  integrity sha512-CbQDaIgdaPtFYkUqoOTU2VCUFru1vvDl1E68leKvW67sK/y/BbVhZv4mcXpTBNpXRQBAk6l3qHQabAC+01xgiQ==
+js-conflux-sdk@^0.13.5:
+  version "0.13.6"
+  resolved "https://registry.yarnpkg.com/js-conflux-sdk/-/js-conflux-sdk-0.13.6.tgz#0820c377d9b537f11fd0c0b8874d8f8ce7c18b85"
+  integrity sha512-u/DHiPcoUWdPOB0Bx2+2FSESJP7I3mUl5GnBE2Mrx/WpIlzw8z5m0ecNuy7EBfGR7TpTHDxChd7Z+mhn5lmnEw==
   dependencies:
     "@babel/runtime" "^7.8.4"
     big.js "^5.2.2"
