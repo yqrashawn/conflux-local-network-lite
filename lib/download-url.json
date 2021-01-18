@@ -1,5 +1,5 @@
 {
-  "mac": "https://github.com/Conflux-Chain/conflux-rust/releases/download/v1.0.3/conflux_mac_v1.0.3.zip",
-  "linux": "https://github.com/Conflux-Chain/conflux-rust/releases/download/v1.0.3/conflux_linux_v1.0.3.zip",
-  "windows": "https://github.com/Conflux-Chain/conflux-rust/releases/download/v1.0.3/conflux_win10_x64_v1.0.3.zip"
+  "mac": "https://github.com/Conflux-Chain/conflux-rust/releases/download/v1.1.0/conflux_mac_v1.1.0.zip",
+  "linux": "https://github.com/Conflux-Chain/conflux-rust/releases/download/v1.1.0/conflux_linux_v1.1.0.zip",
+  "windows": "https://github.com/Conflux-Chain/conflux-rust/releases/download/v1.1.0/conflux_win10_x64_v1.1.0.zip"
 }
