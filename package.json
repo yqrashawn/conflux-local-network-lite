@@ -7,6 +7,7 @@
   "dependencies": {
     "cfx-util": ">=0.0.2",
     "cross-port-killer": "^1.2.1",
+    "delay": "^4.4.0",
     "express": "^4.17.1",
     "express-async-errors": "^3.1.1",
     "got": "^10.7.0",
@@ -21,10 +22,7 @@
     "tmp": "^0.2.0",
     "unzipper": "^0.10.11"
   },
-  "lib": [
-    "public",
-    "lib"
-  ],
+  "lib": ["public", "lib"],
   "devDependencies": {
     "prettier-eslint-cli": "^5.0.0",
     "semantic-release": "^17.1.1"
