@@ -5,7 +5,7 @@ const {
   startGenBlock,
   stopGenBlock,
   genOneBlock,
-  sendCFX,
+  sendCFX
 } = require("./lib/chain.js");
 
 const devServer = require("./lib/dev-server.js");
@@ -49,7 +49,7 @@ class ConfluxNode {
         port: DEFAULT_PORT,
         genBlockManually: false,
         devServer: false,
-        killPortProcess: false,
+        killPortProcess: false
       },
       opts
     );
