@@ -23,7 +23,6 @@ jobs:
             yarn --frozen-lockfile
             node test.js
             ls lib/.conflux-bin/conflux/run/
-            yarn run semantic-release
 
   release:
     docker:
