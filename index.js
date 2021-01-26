@@ -111,7 +111,11 @@ class ConfluxNode {
 
     cfxNode = await start(this.bin, opts);
 
-    this.cfx = new Conflux({ url: `http://localhost:${port}` });
+    this.cfx = new Conflux({
+      url: `http://localhost:${port}`,
+      chainId: "0xbb7",
+      networkId: 2999
+    });
 
     if (!genBlockManually) {
       startGenBlock(opts);

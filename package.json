@@ -12,7 +12,7 @@
     "express-async-errors": "^3.1.1",
     "got": "^10.7.0",
     "jayson": "^3.3.4",
-    "js-conflux-sdk": "^0.13.4",
+    "js-conflux-sdk": "^1.5.4",
     "make-dir": "^3.1.0",
     "p-retry": "^4.2.0",
     "platform-is": "^1.0.4",
@@ -22,7 +22,10 @@
     "tmp": "^0.2.0",
     "unzipper": "^0.10.11"
   },
-  "lib": ["public", "lib"],
+  "lib": [
+    "public",
+    "lib"
+  ],
   "devDependencies": {
     "prettier-eslint-cli": "^5.0.0",
     "semantic-release": "^17.1.1"
