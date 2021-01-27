@@ -25,7 +25,7 @@
   "lib": ["public", "lib"],
   "devDependencies": {
     "prettier-eslint-cli": "^5.0.0",
-    "semantic-release": "^17.1.1"
+    "semantic-release": "^17.2.3"
   },
   "release": {
     "plugins": [
