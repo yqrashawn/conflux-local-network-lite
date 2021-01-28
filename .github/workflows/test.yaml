@@ -10,16 +10,16 @@ jobs:
         os:
           - ubuntu-latest
           # - macos-latest # gatekeeper problem
-          - windows-latest
+          # - windows-latest
         node_version:
           - 10.18
-        architecture:
-          - x64
+        # architecture:
+        #   - x64
         # an extra windows-x86 run:
-        include:
-          - os: windows-2016
-            node_version: 10.18
-            architecture: x86
+        # include:
+        #   - os: windows-2016
+        #     node_version: 10.18
+        #     architecture: x86
     name: Node ${{ matrix.node_version }} - ${{ matrix.architecture }} on ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v2
@@ -30,3 +30,4 @@ jobs:
           architecture: ${{ matrix.architecture }}
       - run: yarn install --frozen-lockfile
       - run: yarn run test
+      - run: npx semantic-release
