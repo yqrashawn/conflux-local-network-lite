@@ -12,7 +12,7 @@
     "express-async-errors": "^3.1.1",
     "got": "^10.7.0",
     "jayson": "^3.3.4",
-    "js-conflux-sdk": "^1.5.8",
+    "js-conflux-sdk": "^1.5.9",
     "make-dir": "^3.1.0",
     "p-retry": "^4.2.0",
     "platform-is": "^1.0.4",
