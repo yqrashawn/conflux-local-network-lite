@@ -75,9 +75,9 @@ class ConfluxNode {
   async _findBinary() {
     if (!this.bin) {
       this.bin = await getBinary()
-      console.log(
-        `[conflux-local-network-lite] found conflux binary at\n  ${this.bin}`
-      )
+      // console.log(
+      //   `[conflux-local-network-lite] found conflux binary at\n  ${this.bin}`
+      // )
     }
     return this.bin
   }
