@@ -1,19 +1,19 @@
-const getBinary = require("./lib/getBinary.js");
-const { start, quit } = require("./lib/server.js");
-const { Conflux } = require("js-conflux-sdk");
+const getBinary = require("./lib/getBinary.js")
+const { start, quit } = require("./lib/server.js")
+const { Conflux } = require("js-conflux-sdk")
 const {
   startGenBlock,
   stopGenBlock,
   genOneBlock,
   sendCFX
-} = require("./lib/chain.js");
+} = require("./lib/chain.js")
 
-const devServer = require("./lib/dev-server.js");
+const devServer = require("./lib/dev-server.js")
 
-const DEFAULT_GEN_BLOCK_INTERVAL = 300;
-const DEFAULT_PORT = 12537;
+const DEFAULT_GEN_BLOCK_INTERVAL = 300
+const DEFAULT_PORT = 12537
 
-let cfxNode;
+let cfxNode
 
 /**
  * a fullnode controller with methods to start/quit/... a fullnode
@@ -34,11 +34,11 @@ class ConfluxNode {
    * @memberof ConfluxNode
    */
   constructor(opts = {}) {
-    this._parseOptions(opts);
+    this._parseOptions(opts)
   }
 
   _parseOptions(opts) {
-    if (!this.opts) this.opts = {};
+    if (!this.opts) this.opts = {}
 
     Object.assign(
       this.opts,
@@ -52,7 +52,7 @@ class ConfluxNode {
         killPortProcess: false
       },
       opts
-    );
+    )
   }
 
   /**
@@ -63,7 +63,7 @@ class ConfluxNode {
    * @memberof ConfluxNode
    */
   _parseStartOptions(opts) {
-    return Object.assign({}, this.opts, opts);
+    return Object.assign({}, this.opts, opts)
   }
 
   /**
@@ -74,12 +74,12 @@ class ConfluxNode {
    */
   async _findBinary() {
     if (!this.bin) {
-      this.bin = await getBinary();
+      this.bin = await getBinary()
       console.log(
         `[conflux-local-network-lite] found conflux binary at\n  ${this.bin}`
-      );
+      )
     }
-    return this.bin;
+    return this.bin
   }
 
   /**
@@ -89,8 +89,8 @@ class ConfluxNode {
    * @memberof ConfluxNode
    */
   get running() {
-    if (!cfxNode) return false;
-    return !cfxNode.killed;
+    if (!cfxNode) return false
+    return !cfxNode.killed
   }
 
   /**
@@ -101,34 +101,34 @@ class ConfluxNode {
    * @memberof ConfluxNode
    */
   async start(opts = {}) {
-    if (this.running) return;
+    if (this.running) return
 
-    opts = this._parseStartOptions(opts);
+    opts = this._parseStartOptions(opts)
 
-    const { port, accounts, genBlockManually } = opts;
+    const { port, accounts, genBlockManually } = opts
 
-    if (!(await this._findBinary())) return;
+    if (!(await this._findBinary())) return
 
-    cfxNode = await start(this.bin, opts);
+    cfxNode = await start(this.bin, opts)
 
     this.cfx = new Conflux({
       url: `http://localhost:${port}`,
       chainId: "0xbb7",
       networkId: 2999
-    });
+    })
 
     if (!genBlockManually) {
-      startGenBlock(opts);
+      startGenBlock(opts)
     }
 
-    devServer.start({ ...opts, node: this });
+    devServer.start({ ...opts, node: this })
 
     if (accounts) {
-      await this.setupAccounts(accounts);
-      await genOneBlock();
+      await this.setupAccounts(accounts)
+      await genOneBlock()
     }
 
-    return this;
+    return this
   }
 
   /**
@@ -138,13 +138,13 @@ class ConfluxNode {
    * @memberof ConfluxNode
    */
   async quit() {
-    if (!this.running) return;
-    stopGenBlock();
-    await this._findBinary();
-    await quit();
-    devServer.stop();
-    cfxNode = null;
-    return this;
+    if (!this.running) return
+    stopGenBlock()
+    await this._findBinary()
+    await quit()
+    devServer.stop()
+    cfxNode = null
+    return this
   }
 
   /**
@@ -154,8 +154,8 @@ class ConfluxNode {
    * @memberof ConfluxNode
    */
   async restart() {
-    await this.quit();
-    return await this.start(...arguments);
+    await this.quit()
+    return await this.start(...arguments)
   }
 
   /**
@@ -167,14 +167,14 @@ class ConfluxNode {
    */
   async setupAccounts(accounts) {
     if (!Array.isArray(accounts)) {
-      throw new Error("accounts must be an array");
+      throw new Error("accounts must be an array")
     }
 
     for (const account of accounts) {
-      await this.sendCFX(account);
+      await this.sendCFX(account)
     }
 
-    return this;
+    return this
   }
 
   /**
@@ -185,10 +185,10 @@ class ConfluxNode {
    * @memberof ConfluxNode
    */
   async sendCFX({ address, balance, secretKey, privateKey }) {
-    if (secretKey) privateKey = secretKey;
-    if (typeof balance !== "string") balance = `0x${balance.toString(16)}`;
-    await sendCFX({ address, balance, privateKey }, this.cfx);
-    return this;
+    if (secretKey) privateKey = secretKey
+    if (typeof balance !== "string") balance = `0x${balance.toString(16)}`
+    await sendCFX({ address, balance, privateKey }, this.cfx)
+    return this
   }
 
   /**
@@ -198,9 +198,9 @@ class ConfluxNode {
    * @memberof ConfluxNode
    */
   async genOneBlock() {
-    if (!this.running) return;
-    await genOneBlock();
-    return this;
+    if (!this.running) return
+    await genOneBlock()
+    return this
   }
 
   /**
@@ -211,10 +211,10 @@ class ConfluxNode {
    * @memberof ConfluxNode
    */
   restartGenBlock(interval = DEFAULT_GEN_BLOCK_INTERVAL) {
-    stopGenBlock();
-    startGenBlock({ interval });
-    return this;
+    stopGenBlock()
+    startGenBlock({ interval })
+    return this
   }
 }
 
-module.exports = ConfluxNode;
+module.exports = ConfluxNode
