@@ -18,11 +18,15 @@
     "platform-is": "^1.0.4",
     "real-executable-path": "^3.0.0",
     "rimraf": "^3.0.1",
+    "signal-exit": "^3.0.3",
     "sleep-promise": "^8.0.1",
     "tmp": "^0.2.0",
     "unzipper": "^0.10.11"
   },
-  "lib": ["public", "lib"],
+  "lib": [
+    "public",
+    "lib"
+  ],
   "devDependencies": {
     "prettier-eslint-cli": "^5.0.0",
     "semantic-release": "^17.2.3"
