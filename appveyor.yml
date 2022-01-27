@@ -1,6 +1,7 @@
 # Test against the latest version of this Node.js version
 image: Visual Studio 2019
 environment:
+  CFX_LITE_NODE_ENV: debug
   matrix:
     - node_version: "16"
 # branches:
@@ -11,7 +12,7 @@ install:
   - ps: "Install-Product node $env:node_version"
   - yarn install --frozen-lockfile
 build_script:
-  - CFX_LITE_NODE_ENV=debug node test.js
+  - node test.js
 test_script:
   - ls ~/.conflux-bin/conflux/run
 cache:
