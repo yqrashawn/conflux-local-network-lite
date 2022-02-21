@@ -1,6 +1,6 @@
 {
-  "mac_arm": "https://github.com/Conflux-Chain/conflux-rust/releases/download/v2.0.0-3-testnet/conflux_mac_v2.0.0-3-testnet.zip",
-  "mac": "https://github.com/yqrashawn/conflux-local-network-lite/releases/download/v1.9.0/conflux_mac_intel_v2.0.0-3-testnet.zip",
-  "linux": "https://github.com/Conflux-Chain/conflux-rust/releases/download/v2.0.0-3-testnet/conflux_linux_v2.0.0-3-testnet.zip",
-  "windows": "https://github.com/Conflux-Chain/conflux-rust/releases/download/v2.0.0-3-testnet/conflux_win10_x64_v2.0.0-3-testnet.zip"
+  "mac_arm": "https://github.com/Conflux-Chain/conflux-rust/releases/download/v2.0.0/conflux_mac_v2.0.0.zip",
+  "mac": "https://github.com/yqrashawn/conflux-local-network-lite/releases/download/v2.0.0/conflux_mac_intel_v2.0.0.zip",
+  "linux": "https://github.com/Conflux-Chain/conflux-rust/releases/download/v2.0.0/conflux_linux_v2.0.0.zip",
+  "windows": "https://github.com/Conflux-Chain/conflux-rust/releases/download/v2.0.0/conflux_win10_x64_v2.0.0.zip"
 }
