@@ -14,7 +14,7 @@
     "jayson": "^3.6.6",
     "js-conflux-sdk": "1.6.2",
     "make-dir": "^3.1.0",
-    "p-retry": "^4.6.0",
+    "p-retry": "^4.6.2",
     "platform-is": "^1.0.4",
     "real-executable-path": "^3.0.0",
     "rimraf": "^3.0.1",
