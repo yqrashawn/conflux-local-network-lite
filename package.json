@@ -10,7 +10,7 @@
     "delay": "^4.4.1",
     "express": "^4.18.0",
     "express-async-errors": "^3.1.1",
-    "got": "^10.7.0",
+    "got": "^11.8.5",
     "jayson": "^3.6.6",
     "js-conflux-sdk": "1.6.2",
     "make-dir": "^3.1.0",
