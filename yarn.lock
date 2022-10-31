@@ -18,22 +18,15 @@
     esutils "^2.0.2"
     js-tokens "^4.0.0"
 
-"@babel/runtime@^7.8.4":
-  version "7.12.5"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.12.5.tgz#410e7e487441e1b360c29be715d870d9b985882e"
-  integrity sha512-plcc+hbExy3McchJCEQG3knOsuh3HH+Prx1P6cLIkET/0dLuQDEnrT+s27Axgc9bqfsmNUNHfscgMUdBpC9xfg==
-  dependencies:
-    regenerator-runtime "^0.13.4"
-
 "@colors/colors@1.5.0":
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/@colors/colors/-/colors-1.5.0.tgz#bb504579c1cae923e6576a4f5da43d25f97bdbd9"
   integrity sha512-ooWCrlZP11i8GImSjTHYHLkvFDP48nS4+204nGb1RiX/WXYHmJA2III9/e2DWVabCESdW7hBAEzHRqUn9OUVvQ==
 
-"@conflux-dev/conflux-address-js@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@conflux-dev/conflux-address-js/-/conflux-address-js-1.0.0.tgz#e779547f40b4436d428e1ea7f616ea23ad895979"
-  integrity sha512-RJMXfleBz3286irDsQ0T+2STsowSUklnqAOglBfQA7dAy274zZ466Sd7l1bQsknJVJ0Q9Y5AGLYv2RIajZpYbg==
+"@conflux-dev/conflux-address-js@1.1.8":
+  version "1.1.8"
+  resolved "https://registry.yarnpkg.com/@conflux-dev/conflux-address-js/-/conflux-address-js-1.1.8.tgz#98204cf9447d87875bab1447483799b86ed45f34"
+  integrity sha512-WKnlIqsKAJ2aZ1CsLnZ8v2qCVjUKGozSQMl3OEgzR7n6K5L5ctexc5CfossOPZQBd+wRNu35ImXjy58XxMGJLQ==
   dependencies:
     jsbi "^3.1.4"
 
@@ -1319,6 +1312,11 @@ commander@^2.20.3:
   version "2.20.3"
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.20.3.tgz#fd485e84c03eb4881c20722ba48035e8531aeb33"
   integrity sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==
+
+commander@^8.0.0:
+  version "8.3.0"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-8.3.0.tgz#4837ea1b2da67b9c616a67afbb0fafee567bca66"
+  integrity sha512-OkTL9umf+He2DZkUq8f8J9of7yL6RJKI24dVITBmNfZBmri9zYZQrKkuXiKhyfPSu8tUhnVBB1iKXevvnlR4Ww==
 
 common-ancestor-path@^1.0.1:
   version "1.0.1"
@@ -2936,19 +2934,19 @@ jayson@^3.6.6:
     uuid "^8.3.2"
     ws "^7.4.5"
 
-js-conflux-sdk@1.6.2:
-  version "1.6.2"
-  resolved "https://registry.yarnpkg.com/js-conflux-sdk/-/js-conflux-sdk-1.6.2.tgz#2305fa5dc2e6a290948cf54387c1f22af5cd9dd2"
-  integrity sha512-QrwsYA2jTOflYgCC/WKWOafSuEgY/xlcoyt5GJGKrEqVrkmq9yFWw2tlgFW0Xky09fARdxR/F/ejA6/SGl8FIA==
+js-conflux-sdk@1.7.3:
+  version "1.7.3"
+  resolved "https://registry.yarnpkg.com/js-conflux-sdk/-/js-conflux-sdk-1.7.3.tgz#e1734b7818da6074b43c92137a99c4355e5bf775"
+  integrity sha512-Xmfzt6zUQ8dPeU5qVFWxrqbMHuxejKl+w9YNbC39cQy7mMzG06SUOw974N3Bn47+SZVSUyhL3xJIxdEBQNjxYA==
   dependencies:
-    "@babel/runtime" "^7.8.4"
-    "@conflux-dev/conflux-address-js" "^1.0.0"
+    "@conflux-dev/conflux-address-js" "1.1.8"
     big.js "^5.2.2"
+    commander "^8.0.0"
     keccak "^2.0.0"
     lodash "^4.17.19"
     scrypt-js "^3.0.1"
     secp256k1 "^3.7.1"
-    superagent "^5.1.0"
+    superagent "^6.1.0"
     websocket "^1.0.31"
 
 js-tokens@^4.0.0:
@@ -4629,11 +4627,6 @@ redeyed@~2.1.0:
   dependencies:
     esprima "~4.0.0"
 
-regenerator-runtime@^0.13.4:
-  version "0.13.7"
-  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.13.7.tgz#cac2dacc8a1ea675feaabaeb8ae833898ae46f55"
-  integrity sha512-a54FxoJDIr27pgf7IgeQGxmqUNYrcV338lf/6gH456HZ/PhX+5BcwHXG9ajESmwe6WRO0tAzRUrRmNONWgkrew==
-
 regexpp@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/regexpp/-/regexpp-2.0.1.tgz#8d19d31cf632482b589049f8281f93dbcba4d07f"
@@ -5231,10 +5224,10 @@ strip-json-comments@^2.0.1, strip-json-comments@~2.0.1:
   resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
   integrity sha1-PFMZQukIwml8DsNEhYwobHygpgo=
 
-superagent@^5.1.0:
-  version "5.3.1"
-  resolved "https://registry.yarnpkg.com/superagent/-/superagent-5.3.1.tgz#d62f3234d76b8138c1320e90fa83dc1850ccabf1"
-  integrity sha512-wjJ/MoTid2/RuGCOFtlacyGNxN9QLMgcpYLDQlWFIhhdJ93kNscFonGvrpAHSCVjRVj++DGCglocF7Aej1KHvQ==
+superagent@^6.1.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/superagent/-/superagent-6.1.0.tgz#09f08807bc41108ef164cfb4be293cebd480f4a6"
+  integrity sha512-OUDHEssirmplo3F+1HWKUrUjvnQuA+nZI6i/JJBdXb5eq9IyEQwPyPpqND+SSsxf6TygpBEkUjISVRN4/VOpeg==
   dependencies:
     component-emitter "^1.3.0"
     cookiejar "^2.1.2"
